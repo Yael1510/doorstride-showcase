@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HatidGo: pickup &amp; delivery app for your town">
+<meta property="og:description" content="Customers book food, item and package deliveries, local riders deliver with live tracking, and the owner runs riders, fares and cash from one dashboard. Try the live demo.">
+<meta property="og:url" content="https://yael1510.github.io/hatidgo-showcase/">
+<meta property="og:image" content="https://yael1510.github.io/hatidgo-showcase/media/og.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f1226">
+<link rel="icon" type="image/png" href="media/mark.png">
+<title>HatidGo</title>
+<meta name="description" content="Pickup and delivery app for small towns: customers book, riders deliver, the owner runs it all from one dashboard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: a phone-first hero, the three roles side by side, one order told as a real sequence,
+     then the owner's tools and the local details. Single dark look, matching the app itself. */
+  :root {
+    --bg: #0f1226;
+    --bg-2: #141834;
+    --surface: #1b2140;
+    --surface-2: #242b50;
+    --line: #2e3660;
+    --ink: #ffffff;
+    --ink-2: #cdd1ea;
+    --muted: #9ea4c7;
+    --coral: #f0652f;
+    --pink: #de3f6a;
+    --amber: #ffb547;
+    --green: #4ade9a;
+    --grad: linear-gradient(120deg, var(--coral), var(--pink));
+    --display: 'Poppins', 'Inter', system-ui, sans-serif;
+    --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --radius: 22px;
+    --shadow: 0 24px 60px rgba(4, 6, 20, 0.55);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(2.5rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.01em; }
+  h3 { font-size: 1.3rem; font-weight: 700; }
+  p { margin: 0; }
+  .lede { font-size: 1.18rem; color: var(--ink-2); max-width: 58ch; }
+  .eyebrow { font-family: var(--display); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); }
+  .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  a { color: var(--coral); }
+  a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 10px; }
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* Header */
+  .top { padding-block: 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 800; font-size: 1.35rem; color: var(--ink); text-decoration: none; }
+  .brand img { width: 42px; height: 42px; border-radius: 12px; }
+  .brand b { color: var(--coral); font-weight: 800; }
+  .pill-link {
+    font-weight: 700; text-decoration: none; color: var(--ink); border: 1.5px solid var(--line); background: var(--surface);
+    padding: 8px 18px; border-radius: 999px; font-size: 0.95rem; white-space: nowrap;
+  }
+  .pill-link:hover { border-color: var(--coral); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--display); font-weight: 600;
+    padding: 13px 26px; border-radius: 14px; font-size: 1.02rem; color: #fff; background: var(--grad);
+    box-shadow: 0 10px 30px rgba(222, 63, 106, 0.28);
+  }
+  .btn:hover { filter: brightness(1.07); }
+  .btn-ghost { background: var(--surface); box-shadow: none; border: 1.5px solid var(--line); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px; align-items: center; padding-block: 26px 40px; }
+  .hero-text { display: grid; gap: 22px; justify-items: start; min-width: 0; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .fact { background: var(--surface); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; color: var(--ink-2); }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+  .note { color: var(--muted); font-size: 0.92rem; }
+  .hero-phones { position: relative; height: 560px; }
+  .hero-phones .phone { position: absolute; width: 230px; }
+  .hero-phones .p1 { left: 0; top: 40px; transform: rotate(-7deg); }
+  .hero-phones .p2 { left: 28%; top: 0; z-index: 2; }
+  .hero-phones .p3 { right: 0; top: 60px; transform: rotate(6deg); }
+
+  /* Phone frame */
+  .phone { border-radius: 38px; background: #05060f; padding: 9px; box-shadow: var(--shadow); border: 1px solid #2a3158; max-width: 100%; }
+  .phone img { border-radius: 30px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; width: 100%; }
+
+  section { padding-block: 76px; }
+  .section-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 760px; }
+
+  /* Three roles */
+  .roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+  .role { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 16px; align-content: start; min-width: 0; }
+  .role .phone { width: 210px; margin: 0 auto 6px; box-shadow: none; }
+  .tag { justify-self: start; font-family: var(--display); font-weight: 700; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; background: rgba(240, 101, 47, 0.15); color: var(--coral); }
+  .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .checks li { display: grid; grid-template-columns: 20px 1fr; gap: 10px; color: var(--ink-2); font-size: 0.97rem; }
+  .checks li::before {
+    content: ""; width: 18px; height: 18px; margin-top: 3px; border-radius: 6px; background: var(--grad);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='6'/%3E%3C/svg%3E");
+  }
+  .checks li { position: relative; }
+  .checks li::after {
+    content: ""; position: absolute; left: 4px; top: 7px; width: 10px; height: 5px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg);
+  }
+
+  /* Order story: a real sequence, so it is numbered */
+  .story { background: var(--bg-2); }
+  .flow { display: grid; gap: 70px; counter-reset: step; }
+  .step { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: center; }
+  .step:nth-child(even) .step-text { order: 2; }
+  .step-text { display: grid; gap: 12px; min-width: 0; }
+  .step-no { counter-increment: step; display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; color: var(--ink-2); font-size: 0.95rem; }
+  .step-no::before {
+    content: counter(step); width: 40px; height: 40px; border-radius: 12px; background: var(--grad); color: #fff;
+    display: grid; place-items: center; font-size: 1.1rem; font-weight: 800;
+  }
+  .step-text p { color: var(--ink-2); }
+  .step .phone { width: 260px; justify-self: center; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 0.85rem; font-weight: 600; padding: 5px 12px; border-radius: 10px; background: var(--surface); color: var(--ink-2); border: 1px solid var(--line); }
+  .bubbles { display: grid; gap: 8px; max-width: 360px; }
+  .bubble { padding: 9px 14px; border-radius: 16px; font-size: 0.92rem; width: fit-content; max-width: 100%; }
+  .bubble.me { background: var(--grad); color: #fff; border-bottom-right-radius: 4px; justify-self: end; }
+  .bubble.them { background: var(--surface-2); color: var(--ink); border-bottom-left-radius: 4px; }
+
+  /* Owner tools */
+  .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+  .tool { display: grid; gap: 14px; align-content: start; min-width: 0; }
+  .tool .phone { box-shadow: none; }
+  .tool h3 { font-size: 1.1rem; }
+  .tool p { color: var(--muted); font-size: 0.94rem; }
+
+  /* Local details */
+  .detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: var(--line); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .detail { background: var(--surface); padding: 26px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .detail h3 { font-size: 1.12rem; }
+  .detail p { color: var(--ink-2); font-size: 0.96rem; }
+  .fares { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.92rem; }
+  .fares th, .fares td { text-align: left; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .fares th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .fares td:last-child, .fares th:last-child { text-align: right; }
+  .fares td strong { font-family: var(--display); }
+  .towns { display: flex; flex-wrap: wrap; gap: 6px; }
+  .towns span { background: var(--surface-2); padding: 3px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
+  .split { display: grid; grid-template-columns: 9fr 1fr; height: 30px; border-radius: 9px; overflow: hidden; font-size: 0.78rem; font-weight: 700; }
+  .split div { display: grid; place-items: center; }
+  .split .r { background: var(--surface-2); color: var(--ink); }
+  .split .h { background: var(--grad); color: #fff; }
+
+  /* Closing */
+  .cta {
+    background: var(--grad); color: #fff; border-radius: 32px; padding: clamp(32px, 6vw, 64px);
+    display: grid; gap: 18px; justify-items: start; position: relative; overflow: hidden;
+  }
+  .cta h2 { max-width: 18ch; color: #fff; }
+  .cta p { max-width: 56ch; font-size: 1.1rem; }
+  .cta .eyebrow { color: #fff; opacity: 0.85; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
+  .cta .btn { background: #fff; color: #c73a3f; box-shadow: none; }
+  .cta .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+  .cta-more { margin-top: 8px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.35); font-size: 1.05rem; position: relative; z-index: 1; }
+  .cta .mark-bg { position: absolute; right: -40px; bottom: -50px; width: 300px; opacity: 0.14; transform: rotate(-12deg); }
+  footer { padding-block: 40px 56px; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 980px) {
+    .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .roles { grid-template-columns: minmax(0, 1fr); }
+    .role { grid-template-columns: 180px minmax(0, 1fr); align-items: start; }
+    .role .phone { width: 180px; grid-row: span 4; margin: 0; }
+  }
+  @media (max-width: 860px) {
+    .hero, .step { grid-template-columns: minmax(0, 1fr); }
+    .hero-phones { height: 470px; max-width: 520px; width: 100%; margin: 0 auto; }
+    .hero-phones .phone { width: 190px; }
+    .step:nth-child(even) .step-text { order: 0; }
+    .step { gap: 26px; }
+    .step .phone { width: 230px; }
+    .detail-grid { grid-template-columns: minmax(0, 1fr); }
+    section { padding-block: 56px; }
+  }
+  @media (max-width: 560px) {
+    .top .pill-link { display: none; }
+    .role { grid-template-columns: minmax(0, 1fr); }
+    .role .phone { width: 200px; margin: 0 auto; grid-row: auto; }
+    .hero-phones { height: 400px; }
+    .hero-phones .phone { width: 155px; }
+    .hero-phones .p2 { left: 26%; }
+    .tools { grid-template-columns: minmax(0, 1fr); }
+    .tool .phone { width: 240px; justify-self: center; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-phones .phone { transition: transform 0.4s ease; }
+    .hero-phones:hover .p1 { transform: rotate(-9deg) translateX(-6px); }
+    .hero-phones:hover .p3 { transform: rotate(8deg) translateX(6px); }
+  }
+</style>
+</head>
+<body style="margin:0">
+
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top"><img src="media/mark.png" alt="" width="42" height="42"><span>Hatid<b>Go</b></span></a>
+    <a class="pill-link" href="https://hatidgo--demo.expo.app" target="_blank" rel="noopener">Try the live demo</a>
+  </header>
+
+  <div class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Pickup &amp; delivery app for your town</span>
+      <h1>Hatid na, <span class="grad-text">Go na!</span> Your town's own delivery app.</h1>
+      <p class="lede">HatidGo lets people book food, item and package deliveries from their phone. Local riders pick up the job, customers track them live, and the owner runs riders, pricing and cash from one dashboard.</p>
+      <div class="facts">
+        <span class="fact">Food, items &amp; packages</span>
+        <span class="fact">Live rider tracking</span>
+        <span class="fact">Cash on delivery</span>
+        <span class="fact">Prices in ₱</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://hatidgo--demo.expo.app" target="_blank" rel="noopener">Try the live demo →</a>
+        <span class="note">Tap Customer, Rider or Admin. Sample orders, no sign-up.</span>
+      </div>
+    </div>
+    <div class="hero-phones" aria-label="HatidGo on three phones">
+      <div class="phone p1"><img src="media/customer_home.webp" alt="Customer home screen: Ano ang ihahatid natin? with a from ₱50 banner" width="600" height="1298"></div>
+      <div class="phone p2"><img src="media/customer_tracking.webp" alt="Order tracking: map with the rider between pickup A and drop-off B" width="600" height="1298"></div>
+      <div class="phone p3"><img src="media/rider_jobs.webp" alt="Rider jobs screen showing the rider online and the current delivery" width="600" height="1298"></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">One app, three roles</span>
+      <h2>Customers book. Riders deliver. You run the show.</h2>
+      <p class="lede">Everyone uses the same app. What they see depends on who signs in.</p>
+    </div>
+    <div class="roles">
+      <article class="role">
+        <div class="phone"><img src="media/customer_orders.webp" alt="My orders list with order cards and price pills" width="600" height="1298"></div>
+        <span class="tag">For customers</span>
+        <h3>Book in a minute, follow every step</h3>
+        <ul class="checks">
+          <li>Choose food, item or package and drop pins on the map</li>
+          <li>See the fare before booking, pay cash on delivery</li>
+          <li>Watch the rider move on the map and chat with them</li>
+          <li>Photo proof at drop-off, then rate the rider</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="phone"><img src="media/rider_pool.webp" alt="Rider open orders pool with Accept buttons" width="600" height="1298"></div>
+        <span class="tag">For riders</span>
+        <h3>Go online, accept, deliver, earn</h3>
+        <ul class="checks">
+          <li>Apply with license, ID and motorcycle photos</li>
+          <li>Open orders appear live; first to accept gets the job</li>
+          <li>Step-by-step status, call or message the customer</li>
+          <li>Earnings, ratings and cash owed in one place</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="phone"><img src="media/admin_map.webp" alt="Admin live map with riders and waiting orders" width="600" height="1298"></div>
+        <span class="tag">For the owner</span>
+        <h3>See everything on one screen</h3>
+        <ul class="checks">
+          <li>Live map of riders and orders waiting for pickup</li>
+          <li>Approve riders after checking their documents</li>
+          <li>Set fares and commission, draw your service area</li>
+          <li>Daily reports and cash collected from riders</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Walkthrough</span>
+      <h2>Follow one order from booking to doorstep</h2>
+      <p class="lede">Maria in Brgy. Alua wants two Chickenjoy meals from the Jollibee on Maharlika Highway. Here's what happens.</p>
+    </div>
+    <div class="flow">
+      <div class="step">
+        <div class="step-text">
+          <span class="step-no">Maria books</span>
+          <h3>Pick a pin, see the fare</h3>
+          <p>She drags the map to the pickup, adds a landmark like "blue gate near the chapel", then sets the drop-off. The road distance and fare appear before she books.</p>
+          <div class="chips"><span class="chip">Search by place or barangay</span><span class="chip">Use my location</span><span class="chip">Service-area check</span></div>
+        </div>
+        <div class="phone"><img src="media/customer_picker.webp" alt="Pickup location picker with a pin over San Isidro" width="600" height="1298"></div>
+      </div>
+      <div class="step">
+        <div class="step-text">
+          <span class="step-no">A rider takes it</span>
+          <h3>The first online rider to accept gets it</h3>
+          <p>The order appears instantly for every approved rider who is online, with the distance and their share of the fee. One tap on Accept and it's theirs.</p>
+          <div class="chips"><span class="chip">One active job per rider</span><span class="chip">Rider's 90% shown upfront</span></div>
+        </div>
+        <div class="phone"><img src="media/rider_pool.webp" alt="Open orders waiting for a rider" width="600" height="1298"></div>
+      </div>
+      <div class="step">
+        <div class="step-text">
+          <span class="step-no">Maria tracks</span>
+          <h3>A live map and a clear timeline</h3>
+          <p>The rider's position updates on the map as they ride. The timeline moves from "on the way to pickup" to "picked up" to "arrived", and Maria can call or message the rider anytime.</p>
+          <div class="chips"><span class="chip">Live location</span><span class="chip">Status timeline</span></div>
+        </div>
+        <div class="phone"><img src="media/customer_tracking.webp" alt="Order tracking with rider location and status timeline" width="600" height="1298"></div>
+      </div>
+      <div class="step">
+        <div class="step-text">
+          <span class="step-no">They chat</span>
+          <h3>Quick replies, in Tagalog</h3>
+          <p>Common messages are one tap away, so riders can answer without typing on the road.</p>
+          <div class="bubbles" aria-label="Sample chat">
+            <div class="bubble me">Hello po! Blue gate po malapit sa kapilya.</div>
+            <div class="bubble them">Sige po, nakuha ko na po ang order. Papunta na po ako.</div>
+            <div class="bubble me">Salamat po! Ilang minuto pa po?</div>
+          </div>
+        </div>
+        <div class="phone"><img src="media/customer_chat.webp" alt="Chat between customer and rider with quick replies" width="600" height="1298"></div>
+      </div>
+      <div class="step">
+        <div class="step-text">
+          <span class="step-no">The rider delivers</span>
+          <h3>Collect cash, snap a photo, done</h3>
+          <p>At the door the rider sees exactly how much cash to collect: the fee plus anything they bought. A photo or the recipient's signature closes the order.</p>
+          <div class="chips"><span class="chip">Proof of delivery</span><span class="chip">Signature pad</span></div>
+        </div>
+        <div class="phone"><img src="media/rider_deliver.webp" alt="Complete delivery screen with cash to collect and photo button" width="600" height="1298"></div>
+      </div>
+      <div class="step">
+        <div class="step-text">
+          <span class="step-no">Maria rates</span>
+          <h3>Delivered, with proof</h3>
+          <p>Maria sees the delivery photo and rates the rider. Ratings show on the rider's earnings screen.</p>
+          <div class="chips"><span class="chip">1–5 stars</span><span class="chip">Order history</span></div>
+        </div>
+        <div class="phone"><img src="media/customer_delivered.webp" alt="Delivered order with proof and five-star rating" width="600" height="1298"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">For the owner</span>
+      <h2>Run the whole operation from your phone</h2>
+    </div>
+    <div class="tools">
+      <div class="tool">
+        <div class="phone"><img src="media/admin_riders.webp" alt="Rider applications with license, ID and motorcycle photos" width="600" height="1298"></div>
+        <h3>Approve riders</h3>
+        <p>Check each applicant's license, ID and motorcycle photo. Reject or suspend with a note they can see.</p>
+      </div>
+      <div class="tool">
+        <div class="phone"><img src="media/admin_orders.webp" alt="Admin order board with cancel buttons" width="600" height="1298"></div>
+        <h3>Watch every order</h3>
+        <p>A live board of open orders. Cancel one or send it back to the pool for another rider.</p>
+      </div>
+      <div class="tool">
+        <div class="phone"><img src="media/admin_reports.webp" alt="Reports with deliveries, fees and commission tiles" width="600" height="1298"></div>
+        <h3>See the numbers</h3>
+        <p>Deliveries, fees, your commission and rider pay for today, 7 days, 30 days or the month.</p>
+      </div>
+      <div class="tool">
+        <div class="phone"><img src="media/admin_reports_chart.webp" alt="Daily fees chart and cash owed by riders" width="600" height="1298"></div>
+        <h3>Collect the cash</h3>
+        <p>On cash orders riders hold your commission. Record each handover and their balance updates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Made for Nueva Ecija</span>
+      <h2>Set up for how deliveries work here</h2>
+    </div>
+    <div class="detail-grid">
+      <div class="detail">
+        <h3>Simple, fair fares</h3>
+        <p>₱50 covers the first 2 km, then ₱10 per km. Sample road trips from San Isidro:</p>
+        <table class="fares">
+          <thead><tr><th>To</th><th>Distance</th><th>Fare</th></tr></thead>
+          <tbody>
+            <tr><td>Around town</td><td>2 km</td><td><strong>₱50</strong></td></tr>
+            <tr><td>Jaen</td><td>4 km</td><td><strong>₱70</strong></td></tr>
+            <tr><td>Gapan</td><td>6 km</td><td><strong>₱90</strong></td></tr>
+            <tr><td>San Leonardo</td><td>8 km</td><td><strong>₱110</strong></td></tr>
+            <tr><td>Cabiao</td><td>10 km</td><td><strong>₱130</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="detail">
+        <h3>Your service area</h3>
+        <p>Draw it on the map by tapping corners. Bookings outside it are blocked automatically.</p>
+        <div class="towns"><span>San Isidro</span><span>Gapan</span><span>Jaen</span><span>San Leonardo</span><span>Cabiao</span></div>
+      </div>
+      <div class="detail">
+        <h3>Riders keep 90%</h3>
+        <p>The commission is set by you. On cash orders the app tracks what each rider owes until they hand it over.</p>
+        <div class="split" aria-label="Fee split: rider 90 percent, HatidGo 10 percent"><div class="r">Rider 90%</div><div class="h">10%</div></div>
+      </div>
+      <div class="detail">
+        <h3>Landmarks, not just addresses</h3>
+        <p>Every pin takes a landmark note like "beside the sari-sari store", because that's how people give directions.</p>
+      </div>
+      <div class="detail">
+        <h3>"Pabili" built in</h3>
+        <p>For food and item orders the rider buys for the customer, and the app adds the item cost to the cash collected at the door.</p>
+      </div>
+      <div class="detail">
+        <h3>Private by design</h3>
+        <p>Customers only see a rider's location during their own active delivery. Chats close when the order ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <img class="mark-bg" src="media/mark.png" alt="" width="192" height="192">
+      <span class="eyebrow">Next step</span>
+      <h2>Want a delivery app for your town or business?</h2>
+      <p><strong>DM me!</strong> I'll set it up with your service area, fares and riders, and your customers can start booking the same week.</p>
+      <div class="cta-actions">
+        <a class="btn" href="https://hatidgo--demo.expo.app" target="_blank" rel="noopener">Try the live demo</a>
+        <a class="btn btn-outline" href="#top">Back to top</a>
+      </div>
+      <p class="cta-more">In need of an app for your business, or thinking about one? <strong>Just DM me and let's discuss it.</strong></p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>HatidGo · pickup and delivery for Nueva Ecija</span>
+    <span>Screens show sample data. <a href="https://hatidgo--demo.expo.app" target="_blank" rel="noopener" style="color:inherit">Live demo</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
