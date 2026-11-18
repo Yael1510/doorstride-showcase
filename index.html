@@ -227,6 +227,14 @@
     font-family: var(--display); font-weight: 700; font-size: 1rem; padding: 6px 18px; border-radius: 999px; box-shadow: var(--shadow);
   }
   .player-note { color: var(--muted); font-size: 0.92rem; margin-top: 12px; }
+  .guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .guide { display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .guide .frame { border-radius: 18px; overflow: hidden; background: #0c0f22; border: 1px solid var(--line); aspect-ratio: 16 / 9; }
+  .guide video { width: 100%; height: 100%; display: block; background: #0c0f22; }
+  .guide h3 { font-size: 1.1rem; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .guide h3 small { font-family: var(--body, inherit); font-weight: 600; font-size: 0.82rem; color: var(--muted); }
+  .guide p { color: var(--muted); font-size: 0.94rem; }
+  @media (max-width: 700px) { .guides { grid-template-columns: minmax(0, 1fr); } }
   video:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
 </style>
 </head>
@@ -264,14 +272,14 @@
   </div>
 
   <div class="player" id="watch">
-    <span class="sticker">2:54 walkthrough · captions on</span>
+    <span class="sticker">3:08 walkthrough · captions on</span>
     <div class="player-frame">
       <video controls preload="metadata" playsinline poster="media/poster.webp">
         <source src="hatidgo-walkthrough.mp4" type="video/mp4">
         Your browser can't play this video.
       </video>
     </div>
-    <p class="player-note">Narrated tour: Maria orders milk tea and lunch from two partner stores in one booking, a rider delivers both, the stores get their own app, and the owner sees it all on the dashboard. Captions are built into the video.</p>
+    <p class="player-note">Narrated tour: Maria orders milk tea and lunch from two partner stores in one booking, a rider delivers both, the stores get their own app, the owner sees it all on the dashboard, and every role gets its own video guide. Captions are built into the video.</p>
   </div>
 </div>
 
@@ -482,6 +490,50 @@
         <div class="phone"><img src="media/admin_promos.webp" alt="Admin promo codes with uses and total discounts" width="600" height="1298" loading="lazy"></div>
         <h3>Run promos</h3>
         <p>Create codes with caps, end dates and first-order rules. Put one on the home screen and track every peso it costs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Built-in video guides</span>
+      <h2>Everyone learns the app on their own</h2>
+      <p class="lede">Each role gets a short narrated guide right on the sign-up screen, and can watch it again from their account. No training sessions needed.</p>
+    </div>
+    <div class="guides">
+      <div class="guide">
+        <div class="frame"><video controls preload="none" playsinline poster="tutorials/customer.jpg" aria-label="How to order video, 1:49">
+          <source src="tutorials/customer.mp4" type="video/mp4">
+        </video></div>
+        <span class="tag">For customers</span>
+        <h3>How to order <small>1:49</small></h3>
+        <p>Create an account, order from a store's menu, add another stop, track the rider and pay on delivery.</p>
+      </div>
+      <div class="guide">
+        <div class="frame"><video controls preload="none" playsinline poster="tutorials/rider.jpg" aria-label="How to deliver video, 1:46">
+          <source src="tutorials/rider.mp4" type="video/mp4">
+        </video></div>
+        <span class="tag">For riders</span>
+        <h3>How to deliver <small>1:46</small></h3>
+        <p>Apply with three photos, go online, accept orders, collect the right cash and see your earnings.</p>
+      </div>
+      <div class="guide">
+        <div class="frame"><video controls preload="none" playsinline poster="tutorials/store.jpg" aria-label="How to sell video, 1:25">
+          <source src="tutorials/store.mp4" type="video/mp4">
+        </video></div>
+        <span class="tag">For partner stores</span>
+        <h3>How to sell <small>1:25</small></h3>
+        <p>Get linked to your store, prepare each order, switch sold-out items off and open or close the store.</p>
+      </div>
+      <div class="guide">
+        <div class="frame"><video controls preload="none" playsinline poster="tutorials/admin.jpg" aria-label="How to run HatidGo video, 1:32">
+          <source src="tutorials/admin.mp4" type="video/mp4">
+        </video></div>
+        <span class="tag">For the owner</span>
+        <h3>How to run HatidGo <small>1:32</small></h3>
+        <p>Orders, the live map, approving riders, linking store owners, cash handovers, fares and promos.</p>
       </div>
     </div>
   </div>
