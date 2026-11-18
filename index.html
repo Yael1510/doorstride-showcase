@@ -110,7 +110,8 @@
   .section-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 760px; }
 
   /* Three roles */
-  .roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+  .roles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+  @media (max-width: 1180px) { .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   .role { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 16px; align-content: start; min-width: 0; }
   .role .phone { width: 210px; margin: 0 auto 6px; box-shadow: none; }
   .tag { justify-self: start; font-family: var(--display); font-weight: 700; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; background: rgba(240, 101, 47, 0.15); color: var(--coral); }
@@ -247,12 +248,12 @@
         <span class="fact">Food, items &amp; packages</span>
         <span class="fact">Live rider tracking</span>
         <span class="fact">Cash on delivery</span>
-        <span class="fact">Prices in ₱</span>
+        <span class="fact">Several stores, one trip</span>
       </div>
       <div class="cta-row">
         <a class="btn" href="https://hatidgo--demo.expo.app" target="_blank" rel="noopener">Try the live demo →</a>
-        <a class="btn btn-ghost" href="#watch">Watch the 2-min tour</a>
-        <span class="note">Tap Customer, Rider or Admin. Sample orders, no sign-up.</span>
+        <a class="btn btn-ghost" href="#watch">Watch the 3-min tour</a>
+        <span class="note">Tap Customer, Rider, Store or Admin. Sample orders, no sign-up.</span>
       </div>
     </div>
     <div class="hero-phones" aria-label="HatidGo on three phones">
@@ -263,21 +264,21 @@
   </div>
 
   <div class="player" id="watch">
-    <span class="sticker">2:21 walkthrough · captions on</span>
+    <span class="sticker">2:54 walkthrough · captions on</span>
     <div class="player-frame">
       <video controls preload="metadata" playsinline poster="media/poster.webp">
         <source src="hatidgo-walkthrough.mp4" type="video/mp4">
         Your browser can't play this video.
       </video>
     </div>
-    <p class="player-note">Narrated tour: Maria orders milk tea from a partner store with a promo code, a rider delivers it, and the owner sees it all on the dashboard. Captions are built into the video.</p>
+    <p class="player-note">Narrated tour: Maria orders milk tea and lunch from two partner stores in one booking, a rider delivers both, the stores get their own app, and the owner sees it all on the dashboard. Captions are built into the video.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">One app, three roles</span>
+      <span class="eyebrow">One app, four roles</span>
       <h2>Customers book. Riders deliver. You run the show.</h2>
       <p class="lede">Everyone uses the same app. What they see depends on who signs in.</p>
     </div>
@@ -288,6 +289,7 @@
         <h3>Book in a minute, follow every step</h3>
         <ul class="checks">
           <li>Order from partner stores or drop pins anywhere on the map</li>
+          <li>Add a second or third stop to get things from several stores in one trip</li>
           <li>See the fare before booking, add a promo code, pay cash on delivery</li>
           <li>An alert at every step, live map and chat with the rider</li>
           <li>Photo proof at drop-off, rate the rider, full order history</li>
@@ -300,6 +302,7 @@
         <ul class="checks">
           <li>Apply with license, ID and motorcycle photos</li>
           <li>A chime the moment a new order comes in; first to accept gets it</li>
+          <li>See what you'll earn before accepting, and exactly what cash to collect</li>
           <li>Step-by-step status, call or message the customer</li>
           <li>Earnings, delivery history, ratings and cash owed in one place</li>
         </ul>
@@ -312,8 +315,19 @@
           <li>Live map of riders and orders waiting for pickup</li>
           <li>Approve riders after checking their documents</li>
           <li>Set fares and commission, draw your service area</li>
-          <li>List partner stores and run promo codes</li>
+          <li>List partner stores, give their owners a login, run promo codes</li>
           <li>Daily reports and cash collected from riders</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="phone"><img src="media/store_orders.webp" alt="Store owner orders screen with an Open for orders switch and items to prepare" width="600" height="1298"></div>
+        <span class="tag">For partner stores</span>
+        <h3>Orders in, menu up to date</h3>
+        <ul class="checks">
+          <li>A chime and the exact items to prepare for every order</li>
+          <li>Works when the store is one stop of a bigger order</li>
+          <li>Switch items off when they sell out</li>
+          <li>Open or close the store with one switch</li>
         </ul>
       </article>
     </div>
@@ -327,11 +341,21 @@
       <h2>Built to bring in orders, not just take them</h2>
       <p class="lede">The features that turn a delivery app into your town's go-to: local stores, launch promos, and nobody missing an order.</p>
     </div>
-    <div class="tools">
+    <div class="tools three">
       <div class="tool">
         <div class="phone"><img src="media/customer_store.webp" alt="Partner store page for a milk tea shop with an Order button" width="600" height="1298" loading="lazy"></div>
         <h3>Partner stores</h3>
         <p>Restaurants, the market and pharmacies show on every customer's home screen. One tap to order, and the pickup is already set.</p>
+      </div>
+      <div class="tool">
+        <div class="phone"><img src="media/customer_stops.webp" alt="Booking route with a pickup at a milk tea shop, a second stop at a carinderia, and the drop-off" width="600" height="1298" loading="lazy"></div>
+        <h3>Several stores, one trip</h3>
+        <p>Milk tea from one shop and lunch from another, in one booking. Each extra stop adds ₱20 plus the extra distance, and customers pick from each store's menu.</p>
+      </div>
+      <div class="tool">
+        <div class="phone"><img src="media/store_products.webp" alt="Store owner product list with Available switches, two items switched off" width="600" height="1298" loading="lazy"></div>
+        <h3>An app for every store</h3>
+        <p>Store owners sign in to see their orders with a chime, switch sold-out items off, and close the store when they're busy.</p>
       </div>
       <div class="tool">
         <div class="phone"><img src="media/customer_book.webp" alt="Booking summary with a ₱20 promo code taken off the delivery fee" width="600" height="1298" loading="lazy"></div>
@@ -404,10 +428,10 @@
         <div class="step-text">
           <span class="step-no">The rider delivers</span>
           <h3>Collect cash, snap a photo, done</h3>
-          <p>At the door the rider sees exactly how much cash to collect: the fee plus anything they bought. A photo or the recipient's signature closes the order.</p>
+          <p>At the door the rider sees exactly how much cash to collect, and how it splits: what pays them back for the items, what they earned, and HatidGo's share. A photo or the recipient's signature closes the order.</p>
           <div class="chips"><span class="chip">Proof of delivery</span><span class="chip">Signature pad</span></div>
         </div>
-        <div class="phone"><img src="media/rider_deliver.webp" alt="Complete delivery screen with cash to collect and photo button" width="600" height="1298"></div>
+        <div class="phone"><img src="media/rider_collect.webp" alt="Rider's current delivery with a Collect from the customer box showing ₱380 and how it splits" width="600" height="1298"></div>
       </div>
       <div class="step">
         <div class="step-text">
@@ -452,7 +476,7 @@
       <div class="tool">
         <div class="phone"><img src="media/admin_stores.webp" alt="Admin list of partner stores with orders in the last 30 days" width="600" height="1298" loading="lazy"></div>
         <h3>Manage partner stores</h3>
-        <p>Add a store with its pin, hours and photo, feature your best ones, and see how many orders each brings in.</p>
+        <p>Add a store with its pin, hours and photo, link the owner's login, and see how many orders each brings in.</p>
       </div>
       <div class="tool">
         <div class="phone"><img src="media/admin_promos.webp" alt="Admin promo codes with uses and total discounts" width="600" height="1298" loading="lazy"></div>
@@ -483,6 +507,7 @@
             <tr><td>Cabiao</td><td>10 km</td><td><strong>₱130</strong></td></tr>
           </tbody>
         </table>
+        <p>Ordering from more than one store? Each extra stop adds ₱20, plus the extra distance.</p>
       </div>
       <div class="detail">
         <h3>Your service area</h3>
