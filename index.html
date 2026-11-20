@@ -20,28 +20,30 @@
 <meta name="description" content="Pickup and delivery app for small towns: customers book, riders deliver, the owner runs it all from one dashboard.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap">
 <style>
   /* Layout: a phone-first hero, the three roles side by side, one order told as a real sequence,
-     then the owner's tools and the local details. Single dark look, matching the app itself. */
+     then the owner's tools and the local details. Night version of the app's Sky blue theme, so the phone screens stand out. */
   :root {
-    --bg: #0f1226;
-    --bg-2: #141834;
-    --surface: #1b2140;
-    --surface-2: #242b50;
-    --line: #2e3660;
+    --bg: #0B1220;
+    --bg-2: #0F1A30;
+    --surface: #16213A;
+    --surface-2: #1E2B47;
+    --line: #26344F;
     --ink: #ffffff;
-    --ink-2: #cdd1ea;
-    --muted: #9ea4c7;
-    --coral: #f0652f;
-    --pink: #de3f6a;
-    --amber: #ffb547;
+    --ink-2: #D2DCEC;
+    --muted: #9AA8BF;
+    --coral: #6AA6F4; /* accent (kept the old name) */
+    --pink: #3D84E0;
+    --amber: #F5B547;
     --green: #4ade9a;
-    --grad: linear-gradient(120deg, var(--coral), var(--pink));
-    --display: 'Poppins', 'Inter', system-ui, sans-serif;
-    --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --grad: linear-gradient(120deg, #1E4FB8, #3D84E0);
+    --grad-text: linear-gradient(120deg, #6AA6F4, #A9D4FA);
+    --sky: #66C4EA;
+    --display: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --radius: 22px;
-    --shadow: 0 24px 60px rgba(4, 6, 20, 0.55);
+    --shadow: 0 24px 60px rgba(2, 8, 24, 0.6);
     color-scheme: dark;
   }
 
@@ -67,7 +69,7 @@
   p { margin: 0; }
   .lede { font-size: 1.18rem; color: var(--ink-2); max-width: 58ch; }
   .eyebrow { font-family: var(--display); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); }
-  .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grad-text { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
   a { color: var(--coral); }
   a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 10px; }
   img { display: block; max-width: 100%; height: auto; }
@@ -76,7 +78,7 @@
   .top { padding-block: 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .brand { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 800; font-size: 1.35rem; color: var(--ink); text-decoration: none; }
   .brand img { width: 42px; height: 42px; border-radius: 12px; }
-  .brand b { color: var(--coral); font-weight: 800; }
+  .brand b { color: var(--sky); font-weight: 800; }
   .pill-link {
     font-weight: 700; text-decoration: none; color: var(--ink); border: 1.5px solid var(--line); background: var(--surface);
     padding: 8px 18px; border-radius: 999px; font-size: 0.95rem; white-space: nowrap;
@@ -87,7 +89,7 @@
   .btn {
     display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--display); font-weight: 600;
     padding: 13px 26px; border-radius: 14px; font-size: 1.02rem; color: #fff; background: var(--grad);
-    box-shadow: 0 10px 30px rgba(222, 63, 106, 0.28);
+    box-shadow: 0 10px 30px rgba(47, 111, 208, 0.35);
   }
   .btn:hover { filter: brightness(1.07); }
   .btn-ghost { background: var(--surface); box-shadow: none; border: 1.5px solid var(--line); }
@@ -100,7 +102,7 @@
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
   .note { color: var(--muted); font-size: 0.92rem; }
   .install { display: flex; align-items: center; gap: 12px; margin-top: 18px; color: var(--muted); font-size: 0.95rem; max-width: 520px; }
-  .install img { width: 48px; height: 48px; border-radius: 12px; flex: none; box-shadow: 0 6px 18px rgba(255, 107, 26, 0.35); }
+  .install img { width: 48px; height: 48px; border-radius: 12px; flex: none; box-shadow: 0 6px 18px rgba(47, 111, 208, 0.35); }
   .install b { color: var(--ink); }
   .hero-phones { position: relative; height: 560px; }
   .hero-phones .phone { position: absolute; width: 230px; }
@@ -120,7 +122,7 @@
   @media (max-width: 1180px) { .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   .role { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 16px; align-content: start; min-width: 0; }
   .role .phone { width: 210px; margin: 0 auto 6px; box-shadow: none; }
-  .tag { justify-self: start; font-family: var(--display); font-weight: 700; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; background: rgba(240, 101, 47, 0.15); color: var(--coral); }
+  .tag { justify-self: start; font-family: var(--display); font-weight: 700; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; background: rgba(106, 166, 244, 0.16); color: var(--coral); }
   .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
   .checks li { display: grid; grid-template-columns: 20px 1fr; gap: 10px; color: var(--ink-2); font-size: 0.97rem; }
   .checks li::before {
@@ -134,7 +136,7 @@
 
   /* Order story: a real sequence, so it is numbered */
   .story { background: var(--bg-2); }
-  .launch { background: radial-gradient(ellipse at 15% 0%, rgba(240, 101, 47, 0.16), transparent 55%), radial-gradient(ellipse at 90% 100%, rgba(222, 63, 106, 0.14), transparent 50%), var(--bg); border-block: 1px solid var(--line); }
+  .launch { background: radial-gradient(ellipse at 15% 0%, rgba(47, 111, 208, 0.2), transparent 55%), radial-gradient(ellipse at 90% 100%, rgba(106, 166, 244, 0.14), transparent 50%), var(--bg); border-block: 1px solid var(--line); }
   .flow { display: grid; gap: 70px; counter-reset: step; }
   .step { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: center; }
   .step:nth-child(even) .step-text { order: 2; }
@@ -187,7 +189,7 @@
   .cta p { max-width: 56ch; font-size: 1.1rem; }
   .cta .eyebrow { color: #fff; opacity: 0.85; }
   .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
-  .cta .btn { background: #fff; color: #c73a3f; box-shadow: none; }
+  .cta .btn { background: #fff; color: #1E4FB8; box-shadow: none; }
   .cta .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
   .cta-more { margin-top: 8px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.35); font-size: 1.05rem; position: relative; z-index: 1; }
   .cta .mark-bg { position: absolute; right: -40px; bottom: -50px; width: 300px; opacity: 0.14; transform: rotate(-12deg); }
@@ -226,8 +228,8 @@
     .hero-phones:hover .p3 { transform: rotate(8deg) translateX(6px); }
   }
   .player { position: relative; margin-block: 10px 30px; }
-  .player-frame { border-radius: 26px; overflow: hidden; background: #0c0f22; box-shadow: var(--shadow); border: 1px solid var(--line); aspect-ratio: 16 / 9; }
-  .player video { width: 100%; height: 100%; display: block; background: #0c0f22; }
+  .player-frame { border-radius: 26px; overflow: hidden; background: #071633; box-shadow: var(--shadow); border: 1px solid var(--line); aspect-ratio: 16 / 9; }
+  .player video { width: 100%; height: 100%; display: block; background: #071633; }
   .sticker {
     position: absolute; top: -16px; right: 22px; z-index: 1; transform: rotate(3deg); background: var(--grad); color: #fff;
     font-family: var(--display); font-weight: 700; font-size: 1rem; padding: 6px 18px; border-radius: 999px; box-shadow: var(--shadow);
@@ -235,8 +237,8 @@
   .player-note { color: var(--muted); font-size: 0.92rem; margin-top: 12px; }
   .guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
   .guide { display: grid; gap: 10px; align-content: start; min-width: 0; }
-  .guide .frame { border-radius: 18px; overflow: hidden; background: #0c0f22; border: 1px solid var(--line); aspect-ratio: 16 / 9; }
-  .guide video { width: 100%; height: 100%; display: block; background: #0c0f22; }
+  .guide .frame { border-radius: 18px; overflow: hidden; background: #071633; border: 1px solid var(--line); aspect-ratio: 16 / 9; }
+  .guide video { width: 100%; height: 100%; display: block; background: #071633; }
   .guide h3 { font-size: 1.1rem; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .guide h3 small { font-family: var(--body, inherit); font-weight: 600; font-size: 0.82rem; color: var(--muted); }
   .guide p { color: var(--muted); font-size: 0.94rem; }
@@ -282,7 +284,7 @@
   </div>
 
   <div class="player" id="watch">
-    <span class="sticker">3:28 walkthrough · captions on</span>
+    <span class="sticker">3:31 walkthrough · captions on</span>
     <div class="player-frame">
       <video controls preload="metadata" playsinline poster="media/poster.webp">
         <source src="hatidgo-walkthrough.mp4" type="video/mp4">
@@ -391,6 +393,21 @@
         <h3>History for everyone</h3>
         <p>Customers see active and past orders. Riders see every delivery they made, what they earned, and how it was rated.</p>
       </div>
+      <div class="tool">
+        <div class="phone"><img src="media/customer_menu.webp" alt="Store menu grouped into Ulam, Silog and Merienda, with item counts" width="600" height="1298" loading="lazy"></div>
+        <h3>Menus by category</h3>
+        <p>Each store's menu opens one category at a time, with a photo for every dish, so customers find what they want without endless scrolling.</p>
+      </div>
+      <div class="tool">
+        <div class="phone"><img src="media/customer_picker.webp" alt="Drop-off picker with a searched place and a landmark note" width="600" height="1298" loading="lazy"></div>
+        <h3>Search as you type</h3>
+        <p>Start typing a barangay, a store or a landmark, and places nearby pop up. Pick one, or drag the map to the exact spot.</p>
+      </div>
+      <div class="tool">
+        <div class="phone"><img src="media/customer_home_dark.webp" alt="Customer home screen in dark mode" width="600" height="1298" loading="lazy"></div>
+        <h3>Light or dark mode</h3>
+        <p>A tap on the moon switches the whole app to dark mode, easy on the eyes for late night orders, and the app remembers the choice.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -400,15 +417,15 @@
     <div class="section-head">
       <span class="eyebrow">Walkthrough</span>
       <h2>Follow one order from booking to doorstep</h2>
-      <p class="lede">Maria in Brgy. Alua wants two Chickenjoy meals from the Jollibee on Maharlika Highway. Here's what happens.</p>
+      <p class="lede">Maria in Brgy. Alua wants two fried chicken meals from a carinderia on Maharlika Highway. Here's what happens.</p>
     </div>
     <div class="flow">
       <div class="step">
         <div class="step-text">
           <span class="step-no">Maria books</span>
           <h3>Pick a pin, see the fare</h3>
-          <p>She drags the map to the pickup, adds a landmark like "blue gate near the chapel", then sets the drop-off. The road distance and fare appear before she books.</p>
-          <div class="chips"><span class="chip">Search by place or barangay</span><span class="chip">Use my location</span><span class="chip">Service-area check</span></div>
+          <p>She drags the map to the pickup, adds a landmark like "blue gate near the school", then sets the drop-off. The road distance and fare appear before she books.</p>
+          <div class="chips"><span class="chip">Suggestions as you type</span><span class="chip">Use my location</span><span class="chip">Service-area check</span></div>
         </div>
         <div class="phone"><img src="media/customer_picker.webp" alt="Pickup location picker with a pin over San Isidro" width="600" height="1298"></div>
       </div>
@@ -525,11 +542,11 @@
     </div>
     <div class="guides">
       <div class="guide">
-        <div class="frame"><video controls preload="none" playsinline poster="tutorials/customer.jpg" aria-label="How to order video, 1:49">
+        <div class="frame"><video controls preload="none" playsinline poster="tutorials/customer.jpg" aria-label="How to order video, 1:54">
           <source src="tutorials/customer.mp4" type="video/mp4">
         </video></div>
         <span class="tag">For customers</span>
-        <h3>How to order <small>1:49</small></h3>
+        <h3>How to order <small>1:54</small></h3>
         <p>Create an account, order from a store's menu, add another stop, track the rider and pay on delivery.</p>
       </div>
       <div class="guide">
