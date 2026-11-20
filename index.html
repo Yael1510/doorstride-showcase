@@ -175,7 +175,7 @@
   .fares td strong { font-family: var(--display); }
   .towns { display: flex; flex-wrap: wrap; gap: 6px; }
   .towns span { background: var(--surface-2); padding: 3px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
-  .split { display: grid; grid-template-columns: 9fr 1fr; height: 30px; border-radius: 9px; overflow: hidden; font-size: 0.78rem; font-weight: 700; }
+  .split { display: grid; grid-template-columns: 17fr 3fr; height: 30px; border-radius: 9px; overflow: hidden; font-size: 0.78rem; font-weight: 700; }
   .split div { display: grid; place-items: center; }
   .split .r { background: var(--surface-2); color: var(--ink); }
   .split .h { background: var(--grad); color: #fff; }
@@ -371,7 +371,7 @@
       <div class="tool">
         <div class="phone"><img src="media/customer_stops.webp" alt="Booking route with a pickup at a milk tea shop, a second stop at a carinderia, and the drop-off" width="600" height="1298" loading="lazy"></div>
         <h3>Several stores, one trip</h3>
-        <p>Milk tea from one shop and lunch from another, in one booking. Each extra stop adds ₱20 plus the extra distance, and customers pick from each store's menu.</p>
+        <p>Milk tea from one shop and lunch from another, in one booking. Each extra stop adds ₱15 plus the extra distance, and customers pick from each store's menu.</p>
       </div>
       <div class="tool">
         <div class="phone"><img src="media/store_products.webp" alt="Store owner product list with Available switches, two items switched off" width="600" height="1298" loading="lazy"></div>
@@ -434,7 +434,7 @@
           <span class="step-no">A rider takes it</span>
           <h3>The first online rider to accept gets it</h3>
           <p>The order appears instantly for every approved rider who is online, with the distance and their share of the fee. One tap on Accept and it's theirs.</p>
-          <div class="chips"><span class="chip">One active job per rider</span><span class="chip">Rider's 90% shown upfront</span></div>
+          <div class="chips"><span class="chip">One active job per rider</span><span class="chip">Rider's 85% shown upfront</span></div>
         </div>
         <div class="phone"><img src="media/rider_pool.webp" alt="Open orders waiting for a rider" width="600" height="1298"></div>
       </div>
@@ -586,28 +586,28 @@
     <div class="detail-grid">
       <div class="detail">
         <h3>Simple, fair fares</h3>
-        <p>₱50 covers the first 2 km, then ₱10 per km. Sample road trips from San Isidro:</p>
+        <p>₱60 covers the first 2 km, then ₱15 per km. Sample road trips from San Isidro:</p>
         <table class="fares">
           <thead><tr><th>To</th><th>Distance</th><th>Fare</th></tr></thead>
           <tbody>
-            <tr><td>Around town</td><td>2 km</td><td><strong>₱50</strong></td></tr>
-            <tr><td>Jaen</td><td>4 km</td><td><strong>₱70</strong></td></tr>
-            <tr><td>Gapan</td><td>6 km</td><td><strong>₱90</strong></td></tr>
-            <tr><td>San Leonardo</td><td>8 km</td><td><strong>₱110</strong></td></tr>
-            <tr><td>Cabiao</td><td>10 km</td><td><strong>₱130</strong></td></tr>
+            <tr><td>Around town</td><td>2 km</td><td><strong>₱60</strong></td></tr>
+            <tr><td>Jaen</td><td>4 km</td><td><strong>₱90</strong></td></tr>
+            <tr><td>Gapan</td><td>6 km</td><td><strong>₱120</strong></td></tr>
+            <tr><td>San Leonardo</td><td>8 km</td><td><strong>₱150</strong></td></tr>
+            <tr><td>Cabiao</td><td>10 km</td><td><strong>₱180</strong></td></tr>
           </tbody>
         </table>
-        <p>Ordering from more than one store? Each extra stop adds ₱20, plus the extra distance.</p>
+        <p>Ordering from more than one store? Each extra stop adds ₱15, plus the extra distance (up to 2 extra stops).</p>
       </div>
       <div class="detail">
         <h3>Your service area</h3>
         <p>Draw it on the map by tapping corners. Bookings outside it are blocked automatically.</p>
-        <div class="towns"><span>San Isidro</span><span>Gapan</span><span>Jaen</span><span>San Leonardo</span><span>Cabiao</span></div>
+        <div class="towns"><span>San Isidro</span><span>Gapan</span><span>Jaen</span><span>San Leonardo</span><span>Cabiao</span><span>San Antonio</span></div>
       </div>
       <div class="detail">
-        <h3>Riders keep 90%</h3>
+        <h3>Riders keep 85%</h3>
         <p>The commission is set by you. On cash orders the app tracks what each rider owes until they hand it over.</p>
-        <div class="split" aria-label="Fee split: rider 90 percent, DoorStride 10 percent"><div class="r">Rider 90%</div><div class="h">10%</div></div>
+        <div class="split" aria-label="Fee split: rider 85 percent, DoorStride 15 percent"><div class="r">Rider 85%</div><div class="h">15%</div></div>
       </div>
       <div class="detail">
         <h3>Landmarks, not just addresses</h3>
