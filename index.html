@@ -235,6 +235,13 @@
     font-family: var(--display); font-weight: 700; font-size: 1rem; padding: 6px 18px; border-radius: 999px; box-shadow: var(--shadow);
   }
   .player-note { color: var(--muted); font-size: 0.92rem; margin-top: 12px; }
+  .teaser { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; align-items: center; margin-block: 0 34px; }
+  .teaser-frame { border-radius: 26px; overflow: hidden; background: #071633; box-shadow: var(--shadow); border: 1px solid var(--line); aspect-ratio: 9 / 16; max-width: 100%; }
+  .teaser-frame video { width: 100%; height: 100%; display: block; background: #071633; object-fit: cover; }
+  .teaser-copy { min-width: 0; }
+  .teaser-copy h3 { margin: 10px 0 8px; text-wrap: balance; }
+  .teaser-copy p { color: var(--muted); margin: 0; max-width: 52ch; }
+  @media (max-width: 720px) { .teaser { grid-template-columns: minmax(0, 1fr); } .teaser-frame { max-width: 320px; margin-inline: auto; } }
   .guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
   .guide { display: grid; gap: 10px; align-content: start; min-width: 0; }
   .guide .frame { border-radius: 18px; overflow: hidden; background: #071633; border: 1px solid var(--line); aspect-ratio: 16 / 9; }
@@ -292,6 +299,20 @@
       </video>
     </div>
     <p class="player-note">Narrated tour: Maria orders milk tea and lunch from two partner stores in one booking, a rider delivers both, the stores get their own app, the owner sees every order and account on the dashboard, every role gets its own video guide, and it sits on your home screen like an app. Captions are built into the video.</p>
+  </div>
+
+  <div class="teaser" id="teaser">
+    <div class="teaser-frame">
+      <video controls preload="none" playsinline poster="media/teaser-poster.webp" aria-label="DoorStride in 60 seconds, vertical teaser video">
+        <source src="doorstride-teaser.mp4" type="video/mp4">
+        Your browser can't play this video.
+      </video>
+    </div>
+    <div class="teaser-copy">
+      <span class="sticker" style="position:static;display:inline-block">1:00 · vertical · captions on</span>
+      <h3>Short on time? DoorStride in 60 seconds</h3>
+      <p>The quick version for Reels, TikTok and Shorts: order from a partner store, add a second store for one rider, follow the rider live, and pay cash at the door. Plus a peek at the rider and partner-store apps, right from the home screen.</p>
+    </div>
   </div>
 </div>
 
