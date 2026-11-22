@@ -241,6 +241,10 @@
   .teaser-copy { min-width: 0; }
   .teaser-copy h3 { margin: 10px 0 8px; text-wrap: balance; }
   .teaser-copy p { color: var(--muted); margin: 0; max-width: 52ch; }
+  .lang-switch { display: inline-flex; gap: 4px; padding: 4px; margin: 14px 0 0; border: 1px solid var(--line); border-radius: 999px; }
+  .lang-switch button { appearance: none; border: 0; background: transparent; color: var(--muted); font: 700 0.92rem var(--display); padding: 6px 16px; border-radius: 999px; cursor: pointer; }
+  .lang-switch button.on { background: var(--grad); color: #fff; }
+  .lang-switch button:focus-visible { outline: 3px solid #ffb547; outline-offset: 2px; }
   @media (max-width: 720px) { .teaser { grid-template-columns: minmax(0, 1fr); } .teaser-frame { max-width: 320px; margin-inline: auto; } }
   .guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
   .guide { display: grid; gap: 10px; align-content: start; min-width: 0; }
@@ -304,18 +308,36 @@
 
   <div class="teaser" id="teaser">
     <div class="teaser-frame">
-      <video controls preload="none" playsinline poster="media/teaser-poster.webp" aria-label="DoorStride in a minute, vertical teaser video">
-        <source src="doorstride-teaser.mp4" type="video/mp4">
+      <video id="teaser-video" controls preload="none" playsinline poster="media/teaser-poster.webp" aria-label="DoorStride in a minute, vertical teaser video" src="doorstride-teaser.mp4">
         Your browser can't play this video.
       </video>
     </div>
     <div class="teaser-copy">
-      <span class="sticker" style="position:static;display:inline-block">1:04 · vertical · captions on</span>
+      <span class="sticker" style="position:static;display:inline-block">About 1 min · vertical · captions on</span>
+      <div class="lang-switch" role="group" aria-label="Teaser language">
+        <button type="button" class="on" data-src="doorstride-teaser.mp4" data-poster="media/teaser-poster.webp" aria-pressed="true">English</button>
+        <button type="button" data-src="doorstride-teaser-filipino.mp4" data-poster="media/teaser-poster-fil.webp" aria-pressed="false">Filipino</button>
+      </div>
       <h3>Short on time? DoorStride in a minute</h3>
-      <p>The quick version for Reels, TikTok and Shorts: order from a partner store, add a second store for one rider, follow the rider live, and pay cash at the door. Plus a peek at the rider and partner-store apps. Store owners can sign up to be featured on the customer home screen, Android and iOS apps are coming soon (add it to your home screen meanwhile), and we're hiring riders and partnering with stores in San Isidro and nearby towns.</p>
+      <p>The quick version for Reels, TikTok and Shorts, in English or in Filipino (with a Filipino narrator): order from a partner store, add a second store for one rider, follow the rider live, and pay cash at the door. Plus a peek at the rider and partner-store apps. Store owners can sign up to be featured on the customer home screen, Android and iOS apps are coming soon (add it to your home screen meanwhile), and we're hiring riders and partnering with stores in San Isidro and nearby towns.</p>
     </div>
   </div>
 </div>
+<script>
+  // Teaser language switch: swaps the video and its poster.
+  (() => {
+    const video = document.getElementById('teaser-video');
+    const buttons = document.querySelectorAll('.lang-switch button');
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      if (b.classList.contains('on')) return;
+      buttons.forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
+      video.pause();
+      video.poster = b.dataset.poster;
+      video.src = b.dataset.src;
+      video.load();
+    }));
+  })();
+</script>
 
 <section>
   <div class="wrap">
