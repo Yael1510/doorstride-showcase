@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DoorStride: pickup &amp; delivery app for your town">
-<meta property="og:description" content="Customers book food, item and package deliveries, local riders deliver with live tracking, and the owner runs riders, fares and cash from one dashboard. Try the live demo.">
+<meta property="og:description" content="Customers book food, item and package deliveries, local riders deliver with live tracking, and partner stores get their own app. Try the live demo.">
 <meta property="og:url" content="https://yael1510.github.io/doorstride-showcase/">
 <meta property="og:image" content="https://yael1510.github.io/doorstride-showcase/media/og.png">
 <meta property="og:image:width" content="1280">
@@ -17,13 +17,13 @@
 <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="DoorStride">
 <title>DoorStride</title>
-<meta name="description" content="Pickup and delivery app for small towns: customers book, riders deliver, the owner runs it all from one dashboard.">
+<meta name="description" content="Pickup and delivery app for small towns: customers book, riders deliver, partner stores sell.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap">
 <style>
   /* Layout: a phone-first hero, the three roles side by side, one order told as a real sequence,
-     then the owner's tools and the local details. Night version of the app's Sky blue theme, so the phone screens stand out. */
+     then the local details. Night version of the app's Sky blue theme, so the phone screens stand out. */
   :root {
     --bg: #0B1220;
     --bg-2: #0F1A30;
@@ -118,8 +118,7 @@
   .section-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 760px; }
 
   /* Three roles */
-  .roles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
-  @media (max-width: 1180px) { .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
   .role { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 16px; align-content: start; min-width: 0; }
   .role .phone { width: 210px; margin: 0 auto 6px; box-shadow: none; }
   .tag { justify-self: start; font-family: var(--display); font-weight: 700; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; background: rgba(106, 166, 244, 0.16); color: var(--coral); }
@@ -155,7 +154,7 @@
   .bubble.me { background: var(--grad); color: #fff; border-bottom-right-radius: 4px; justify-self: end; }
   .bubble.them { background: var(--surface-2); color: var(--ink); border-bottom-left-radius: 4px; }
 
-  /* Owner tools */
+  /* Tool cards */
   .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
   .tools.three { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 900px; margin-inline: auto; }
   .tool { display: grid; gap: 14px; align-content: start; min-width: 0; }
@@ -246,14 +245,14 @@
   .lang-switch button.on { background: var(--grad); color: #fff; }
   .lang-switch button:focus-visible { outline: 3px solid #ffb547; outline-offset: 2px; }
   @media (max-width: 720px) { .teaser { grid-template-columns: minmax(0, 1fr); } .teaser-frame { max-width: 320px; margin-inline: auto; } }
-  .guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .guides { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
   .guide { display: grid; gap: 10px; align-content: start; min-width: 0; }
   .guide .frame { border-radius: 18px; overflow: hidden; background: #071633; border: 1px solid var(--line); aspect-ratio: 16 / 9; }
   .guide video { width: 100%; height: 100%; display: block; background: #071633; }
   .guide h3 { font-size: 1.1rem; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .guide h3 small { font-family: var(--body, inherit); font-weight: 600; font-size: 0.82rem; color: var(--muted); }
   .guide p { color: var(--muted); font-size: 0.94rem; }
-  @media (max-width: 700px) { .guides { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 900px) { .guides { grid-template-columns: minmax(0, 1fr); } }
   video:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
 </style>
 </head>
@@ -270,7 +269,7 @@
     <div class="hero-text">
       <span class="eyebrow">Pickup &amp; delivery app for your town</span>
       <h1>Every door, <span class="grad-text">in stride.</span> Your town's own delivery app.</h1>
-      <p class="lede">DoorStride lets people book food, item and package deliveries from their phone. Local riders pick up the job, customers track them live, and the owner runs riders, pricing and cash from one dashboard.</p>
+      <p class="lede">DoorStride lets people book food, item and package deliveries from their phone. Local riders pick up the job, customers track them live, and partner stores get their own app for orders.</p>
       <div class="facts">
         <span class="fact">Food, items &amp; packages</span>
         <span class="fact">Live rider tracking</span>
@@ -281,7 +280,7 @@
         <a class="btn" href="https://doorstride--demo.expo.app" target="_blank" rel="noopener">Try the live demo →</a>
         <a class="btn btn-ghost" href="#watch">Watch the 3-min tour</a>
         <a class="btn btn-ghost" href="https://doorstride.expo.app" target="_blank" rel="noopener">Open the real app</a>
-        <span class="note">The demo: tap Customer, Rider, Store or Admin, sample orders, no sign-up. The real app is where customers, riders and stores sign up.</span>
+        <span class="note">The demo: tap Customer, Rider or Store, sample orders, no sign-up. The real app is where customers, riders and stores sign up.</span>
       </div>
       <div class="install">
         <img src="media/apple-touch-icon.png" alt="DoorStride app icon" width="48" height="48">
@@ -303,7 +302,7 @@
         Your browser can't play this video.
       </video>
     </div>
-    <p class="player-note">Narrated tour: Maria orders milk tea and lunch from two partner stores in one booking, a rider delivers both, the stores get their own app, the owner sees every order and account on the dashboard, every role gets its own video guide, and it sits on your home screen like an app. Captions are built into the video.</p>
+    <p class="player-note">Narrated tour: Maria orders milk tea and lunch from two partner stores in one booking, a rider delivers both, the stores get their own app, every role gets its own video guide, and it sits on your home screen like an app. Captions are built into the video.</p>
   </div>
 
   <div class="teaser" id="teaser">
@@ -342,8 +341,8 @@
 <section>
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">One app, four roles</span>
-      <h2>Customers book. Riders deliver. You run the show.</h2>
+      <span class="eyebrow">One app for everyone</span>
+      <h2>Customers book. Riders deliver. Stores sell.</h2>
       <p class="lede">Everyone uses the same app. What they see depends on who signs in.</p>
     </div>
     <div class="roles">
@@ -371,19 +370,6 @@
           <li>A busy areas map and a daily goal with a bonus</li>
           <li>Step-by-step status, call or message the customer</li>
           <li>Earnings, delivery history, ratings and cash owed in one place</li>
-        </ul>
-      </article>
-      <article class="role">
-        <div class="phone"><img src="media/admin_map.webp" alt="Admin live map with riders and waiting orders" width="600" height="1298"></div>
-        <span class="tag">For the owner</span>
-        <h3>See everything on one screen</h3>
-        <ul class="checks">
-          <li>Live map of riders and orders waiting for pickup</li>
-          <li>Approve riders after checking their documents</li>
-          <li>Search, edit or disable any account</li>
-          <li>Set fares, commission and a rider daily goal, draw your service area</li>
-          <li>List partner stores, give their owners a login, run promo codes</li>
-          <li>Daily reports and cash collected from riders</li>
         </ul>
       </article>
       <article class="role">
@@ -544,56 +530,6 @@
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">For the owner</span>
-      <h2>Run the whole operation from your phone</h2>
-    </div>
-    <div class="tools">
-      <div class="tool">
-        <div class="phone"><img src="media/admin_riders.webp" alt="Rider applications with license, ID and motorcycle photos" width="600" height="1298"></div>
-        <h3>Approve riders</h3>
-        <p>Check each applicant's license, ID and motorcycle photo. Reject or suspend with a note they can see.</p>
-      </div>
-      <div class="tool">
-        <div class="phone"><img src="media/admin_orders.webp" alt="Admin order board with cancel buttons" width="600" height="1298"></div>
-        <h3>Watch every order</h3>
-        <p>A live board of open orders. Cancel one or send it back to the pool for another rider.</p>
-      </div>
-      <div class="tool">
-        <div class="phone"><img src="media/admin_reports.webp" alt="Reports with deliveries, fees and commission tiles" width="600" height="1298"></div>
-        <h3>See the numbers</h3>
-        <p>Deliveries, fees, your commission and rider pay for today, 7 days, 30 days or the month.</p>
-      </div>
-      <div class="tool">
-        <div class="phone"><img src="media/admin_reports_chart.webp" alt="Daily fees chart and cash owed by riders" width="600" height="1298"></div>
-        <h3>Collect the cash</h3>
-        <p>On cash orders riders hold your commission. Record each handover and their balance updates.</p>
-      </div>
-      <div class="tool">
-        <div class="phone"><img src="media/admin_stores.webp" alt="Admin list of partner stores with orders in the last 30 days" width="600" height="1298" loading="lazy"></div>
-        <h3>Manage partner stores</h3>
-        <p>Add a store with its pin, hours and photo, link the owner's login, and see how many orders each brings in.</p>
-      </div>
-      <div class="tool">
-        <div class="phone"><img src="media/admin_promos.webp" alt="Admin promo codes with uses and total discounts" width="600" height="1298" loading="lazy"></div>
-        <h3>Run promos</h3>
-        <p>Create codes with caps, end dates and first-order rules. Put one on the home screen and track every peso it costs.</p>
-      </div>
-      <div class="tool">
-        <div class="phone"><img src="media/admin_accounts.webp" alt="Admin accounts list with role filters and Edit and Disable buttons" width="600" height="1298" loading="lazy"></div>
-        <h3>Every account in one place</h3>
-        <p>Search every customer, rider and store owner. Fix their details, or disable an account in one tap without losing its history.</p>
-      </div>
-      <div class="tool">
-        <div class="phone"><img src="media/forgot_password.webp" alt="Forgot your password screen with an email field and Send reset link button" width="600" height="1298" loading="lazy"></div>
-        <h3>Forgot password, built in</h3>
-        <p>Anyone can reset their password by email, and change it anytime from their account. No more resetting accounts by hand.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section>
   <div class="wrap">
@@ -626,14 +562,6 @@
         <span class="tag">For partner stores</span>
         <h3>How to sell <small>1:54</small></h3>
         <p>Get linked to your store, accept and prepare each order, add sizes and add-ons, and check your sales and ratings.</p>
-      </div>
-      <div class="guide">
-        <div class="frame"><video controls preload="none" playsinline poster="tutorials/admin.jpg" aria-label="How to run DoorStride video, 1:39">
-          <source src="tutorials/admin.mp4" type="video/mp4">
-        </video></div>
-        <span class="tag">For the owner</span>
-        <h3>How to run DoorStride <small>1:39</small></h3>
-        <p>Orders, the live map, approving riders, linking store owners, cash handovers, fares, rider goals and promos.</p>
       </div>
     </div>
   </div>
